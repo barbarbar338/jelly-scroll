@@ -1,22 +1,15 @@
 import { value, styler, physics } from "popmotion";
-import lerp from "lerp";
-import clamp from "clamp";
+import { jelly } from "./utils/jelly";
 
-function jelly(v) {
-	const input = [-5, 0, 5];
-	const output = [-Math.PI / 7, 0, Math.PI / 7];
-
-	let i = 1;
-	for (; i < input.length; i++)
-		if (input[i] > v || i === input.length - 1) break;
-
-	const range = clamp((v - input[i - 1]) / (input[i] - input[i - 1]));
-	const result = lerp(output[i - 1], output[i], range);
-
-	return result;
+export interface IJellyScrollOptions {
+	friction?: number;
+	strength?: number;
 }
 
-function JellyScroll(containerID, opts = {}) {
+export function JellyScroll(
+	containerID: string,
+	opts: IJellyScrollOptions = {},
+) {
 	const state = {
 		time: 0,
 		y_value: 0,
@@ -27,9 +20,9 @@ function JellyScroll(containerID, opts = {}) {
 		...opts,
 	};
 
-	const container = document.getElementById(containerID);
+	const container = document.getElementById(containerID) as HTMLElement;
 	const containerStyler = styler(container);
-	const yValue = value(0, (v) =>
+	const yValue = value(0, (v: number) =>
 		containerStyler.set({ transform: `skewY(${v}rad)` }),
 	);
 
@@ -53,6 +46,10 @@ function JellyScroll(containerID, opts = {}) {
 	});
 }
 
-if (typeof window !== "undefined") window.JellyScroll = JellyScroll;
+declare global {
+	interface Window {
+		JellyScroll: typeof JellyScroll;
+	}
+}
 
-export { JellyScroll };
+if (typeof window !== "undefined") window.JellyScroll = JellyScroll;

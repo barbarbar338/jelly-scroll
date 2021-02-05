@@ -1,9 +1,9 @@
 {
 	"name": "jelly-scroll",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "Easily add JellyScroll effect to your websites.",
 	"main": "dist",
-	"typings": "types",
+	"typings": "dist",
 	"author": {
 		"email": "demirci.baris38@gmail.com",
 		"name": "Barış DEMİRCİ",
@@ -20,20 +20,16 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
-		"clamp": "^1.0.1",
-		"lerp": "^1.0.3",
 		"popmotion": "8"
 	},
 	"devDependencies": {
 		"clean-webpack-plugin": "^3.0.0",
-		"css-loader": "^5.0.1",
 		"eslint": "^7.18.0",
 		"eslint-config-recommended": "^4.1.0",
-		"html-webpack-plugin": "^4.5.1",
 		"prettier": "^2.2.1",
 		"rimraf": "^3.0.2",
-		"style-loader": "^2.0.0",
-		"uglifyjs-webpack-plugin": "^2.2.0",
+		"ts-loader": "^8.0.15",
+		"typescript": "^4.1.3",
 		"webpack": "^5.18.0",
 		"webpack-cli": "^4.4.0"
 	},
