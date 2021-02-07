@@ -8,19 +8,19 @@ Run `npm i jelly-scroll` or `yarn add jelly-scroll`
 
 ## Install Using UNPKG:
 
-Just import it like `<script src="https://unpkg.com/jelly-scroll/dist/index.js"></script>`
+Just import it like `<script src="https://unpkg.com/jelly-scroll/dist/browser/index.js"></script>`
 
 ## Usage:
 
-```js
-// html
-<script src="https://unpkg.com/jelly-scroll/dist/index.js"></script>
+```html
+<!-- html -->
+<script src="https://unpkg.com/jelly-scroll/dist/browser/index.js"></script>
 <script>
-    JellyScroll("containerID");
+	JellyScroll("containerID");
 </script>
+```
 
-/* ---------------- */
-
+```js
 // node
 import { JellyScroll } from "jelly-scroll";
 

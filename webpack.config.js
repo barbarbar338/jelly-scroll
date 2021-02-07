@@ -19,7 +19,7 @@ module.exports = () => {
 		},
 		output: {
 			filename: "index.js",
-			path: resolve(__dirname, "dist"),
+			path: resolve(__dirname, "dist", "browser"),
 		},
 		plugins: [new CleanWebpackPlugin()],
 		devtool: "inline-source-map",
